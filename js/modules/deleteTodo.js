@@ -15,3 +15,17 @@ export function deleteTodo(id, todos, li) {
     console.log(`리스트에서 데이터 ID ${id}를 찾을 수 없습니다.`);
   }
 }
+
+// 전체 삭제
+export function deleteAllTodos(todos, renderTodos) {
+  if (todos.length === 0) {
+    alert("삭제할 항목이 없습니다.");
+    return;
+  }
+
+  if (confirm("모든 항목을 삭제하시겠습니까?")) {
+    todos.length = 0;
+    localStorage.setItem("todos", JSON.stringify([]));
+    renderTodos();
+  }
+}
