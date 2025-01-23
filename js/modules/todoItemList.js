@@ -1,9 +1,11 @@
-import { saveTodos } from "../utils/localStorage.js";
+import { saveTodos, getTodos } from "../utils/localStorage.js";
+import { deleteTodo } from "./deleteTodo.js";
 import { showTodoDetailsModal } from "./modals/showTodoDetailsModal.js";
 
 export function todoItemList(todo, todos) {
   const li = document.createElement("li");
   li.dataset.id = todo.id;
+  console.log("todos", todos);
 
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
@@ -35,9 +37,17 @@ export function todoItemList(todo, todos) {
 
   const trashIcon = document.createElement("img");
   trashIcon.src = "/assets/trashcan.png";
-  trashIcon.alt = "삭제 아이콘";
+  trashIcon.style.cursor = "pointer";
 
   deleteButton.appendChild(trashIcon);
+  deleteButton.addEventListener("click", () => {
+    const confirmDelete = window.confirm("삭제하시겠습니까?");
+    if (confirmDelete) {
+      deleteTodo(todo.id, todos, li);
+      alert("삭제되었습니다.");
+      getTodos();
+    }
+  });
 
   li.appendChild(checkbox);
   li.appendChild(label);

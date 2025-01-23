@@ -6,7 +6,7 @@ body {
   color: #333;
 }
 
-h1 {
+h2 {
   text-align: center;
   margin-top: 20px;
 }
@@ -34,4 +34,38 @@ h1 {
 .completed {
   text-decoration: line-through;
   color: gray;
+}
+
+#addTodo {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+#addTodo:hover {
+  background-color: #0056b3;
+}
+
+.hidden {
+  display: none;
+}
+
+#emptyMessage {
+  color: gray;
+  font-size: 1.2em;
+  text-align: center;
+  margin-top: 20px;
 }
