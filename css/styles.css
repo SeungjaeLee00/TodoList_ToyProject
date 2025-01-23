@@ -19,16 +19,21 @@ h1 {
 }
 
 .todo-item {
-  background: #fff;
-  margin: 10px 0;
+  list-style-type: none;
   padding: 10px;
-  border: 1px solid #ccc;
-  cursor: pointer;
-  transition: background 0.3s;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .todo-item:hover {
   background: #f0f0f0;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
 }
 
 button {
