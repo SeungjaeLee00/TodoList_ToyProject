@@ -1,10 +1,12 @@
+import { deleteTodo } from "./deleteTodo.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   const addButton = document.getElementById("addTodo");
   const todoList = document.getElementById("todoList");
   const todos = JSON.parse(localStorage.getItem("todos")) || [];
 
   todos.forEach((todo) => {
-    const li = createTodoItem(todo);
+    const li = todoItemList(todo);
     todoList.appendChild(li);
   });
 
@@ -12,10 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     openAddTodoModal();
   });
 
-  addButton.addEventListener("click", () => {
-    openAddTodoModal();
-  });
-
+  // todo 추가 모달
   function openAddTodoModal() {
     const modal = document.createElement("div");
     modal.className = "modal";
@@ -58,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
         todos.push(newTodo);
         localStorage.setItem("todos", JSON.stringify(todos));
 
-        const li = createTodoItem(newTodo);
+        const li = todoItemList(newTodo);
         todoList.appendChild(li);
 
         modal.remove();
@@ -78,8 +77,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(modal);
   }
 
-  function createTodoItem(todo) {
+  // todo 목록
+  function todoItemList(todo) {
     const li = document.createElement("li");
+    li.dataset.id = todo.id;
 
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
@@ -92,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const label = document.createElement("label");
-    label.textContent = todo.content;
+    label.textContent = todo.title;
 
     const detailsButton = document.createElement("button");
     detailsButton.textContent = "상세 보기";
@@ -106,9 +107,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     li.className = "todo-item";
 
+    const deleteButton = document.createElement("button");
+    deleteButton.className = "delete-button";
+    deleteButton.textContent = "삭제";
+    li.appendChild(deleteButton);
+
     return li;
   }
 
+  // 체크 박스 함수 구현
   const checkboxes = document.getElementsByName("checklists");
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener("change", (e) => {
@@ -120,6 +127,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // todo 삭제 기능
+  todoList.addEventListener("click", (e) => {
+    if (e.target && e.target.matches(".delete-button")) {
+      const li = e.target.closest("li");
+      const todoId = parseInt(li.dataset.id, 10);
+
+      const confirmDelete = window.confirm("삭제하시겠습니까?");
+      if (confirmDelete) {
+        deleteTodo(todoId, todos, todoList);
+        alert("삭제되었습니다.");
+      }
+    }
+  });
+
+  // todo 상세 보기 모달
   function showTodoDetails(todo) {
     const modal = document.createElement("div");
     modal.className = "modal";
