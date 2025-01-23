@@ -36,13 +36,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const label = document.createElement("label");
     label.textContent = todo.content;
 
+    const detailsButton = document.createElement("button");
+    detailsButton.textContent = "상세 보기";
+    detailsButton.addEventListener("click", () => {
+      showTodoDetails(todo);
+    });
+
     li.appendChild(checkbox);
     li.appendChild(label);
-    li.className = "todo-item";
+    li.appendChild(detailsButton);
 
-    // li.addEventListener("click", () => {
-    //   window.location.href = `/html/todo.html?id=${todo.id}`;
-    // });
+    li.className = "todo-item";
 
     return li;
   }
@@ -57,4 +61,32 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("todos", JSON.stringify(todos));
     });
   });
+
+  function showTodoDetails(todo) {
+    const modal = document.createElement("div");
+    modal.className = "modal";
+
+    const modalContent = document.createElement("div");
+    modalContent.className = "modal-content";
+
+    const closeBtn = document.createElement("span");
+    closeBtn.className = "close-button";
+    closeBtn.textContent = "×";
+    closeBtn.addEventListener("click", () => {
+      modal.remove();
+    });
+
+    const title = document.createElement("h2");
+    title.textContent = "메모 상세보기";
+
+    const content = document.createElement("p");
+    content.textContent = todo.content;
+
+    modalContent.appendChild(closeBtn);
+    modalContent.appendChild(title);
+    modalContent.appendChild(content);
+    modal.appendChild(modalContent);
+
+    document.body.appendChild(modal);
+  }
 });
