@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>오늘의 할 일</title>
+
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/todoItemList.css" />
     <link rel="stylesheet" href="./css/addTodoModal.css" />
@@ -12,6 +13,9 @@
   </head>
   <body>
     <h2>할 일을 정리해보세요!</h2>
+    <!-- 오늘 -->
+    <div id="current-date"></div>
+
     <div
       style="justify-content: space-between; align-items: center; padding: 10px"
     >
@@ -27,6 +31,17 @@
     </div>
     <p id="emptyMessage" class="hidden">할 일을 추가해보세요 !</p>
     <button id="addTodo">+</button>
+
     <script type="module" src="./js/index.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 오늘 날짜
+        const today = new Date().toLocaleDateString("ko-KR", {
+          dateStyle: "full",
+        });
+        document.getElementById("current-date").textContent = today;
+      });
+    </script>
   </body>
 </html>
