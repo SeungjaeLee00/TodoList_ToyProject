@@ -7,7 +7,10 @@ HTML, CSS, JavaScript로 구현된 간단한 Todo List 애플리케이션입니�
 ## 기능 설명
 
 - **새로운 Todo 추가**: "Add Todo" 버튼을 클릭하여 새로운 Todo를 쉽게 추가할 수 있습니다.
+- **Todo 상세보기**: Todo 제목을 클릭하면 상세 페이지로 이동하여 내용을 확인할 수 있습니다.
+- **Todo 삭제**: 상세 페이지에서 Todo를 삭제할 수 있습니다.
 - **데이터 유지**: Local Storage를 사용하여 브라우저를 새로고침하거나 종료해도 데이터가 유지됩니다.
+- **반응형 디자인**: 데스크톱과 모바일 환경 모두에서 사용할 수 있습니다.
 
 ---
 
@@ -19,10 +22,12 @@ HTML, CSS, JavaScript로 구현된 간단한 Todo List 애플리케이션입니�
 - **/html**
 
   - `index.html`: Todo 목록 페이지
+  - `todo.html`: Todo 상세 페이지
 
 - **/js**
 
   - `script.js`: Todo 목록 페이지의 JavaScript
+  - `todo.js`: Todo 상세 페이지의 JavaScript
 
 - **README.md**  
   프로젝트 설명 파일입니다.
@@ -69,4 +74,4 @@ HTML, CSS, JavaScript로 구현된 간단한 Todo List 애플리케이션입니�
      ```
 
 5. **Todo 관리**
-   - "Add Todo" 버튼을 클릭하여 새로운 Todo를 추가할 수 있습니다.
+   - "Add Todo" 버튼을 클릭하여 새로운 Todo를 추가하고, Todo 제목을 클릭하여 상세 페이지를 확인하거나 삭제할 수 있습니다.

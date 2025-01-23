@@ -24,6 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const li = document.createElement("li");
     li.textContent = todo.content;
     li.className = "todo-item";
+    li.addEventListener("click", () => {
+      window.location.href = `/html/todo.html?id=${todo.id}`;
+    });
     return li;
   }
 });
