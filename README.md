@@ -10,27 +10,30 @@ HTML, CSS, JavaScript로 구현된 간단한 Todo List 애플리케이션입니�
 - **Todo 상세보기**: Todo 제목을 클릭하면 상세 페이지로 이동하여 내용을 확인할 수 있습니다.
 - **Todo 삭제**: 상세 페이지에서 Todo를 삭제할 수 있습니다.
 - **데이터 유지**: Local Storage를 사용하여 브라우저를 새로고침하거나 종료해도 데이터가 유지됩니다.
-- **반응형 디자인**: 데스크톱과 모바일 환경 모두에서 사용할 수 있습니다.
 
 ---
 
 ## 폴더 구조
 
-- **/css**  
-  애플리케이션의 스타일 파일들이 포함되어 있습니다.
-
-- **/html**
-
-  - `index.html`: Todo 목록 페이지
-  - `todo.html`: Todo 상세 페이지
-
-- **/js**
-
-  - `script.js`: Todo 목록 페이지의 JavaScript
-  - `todo.js`: Todo 상세 페이지의 JavaScript
-
-- **README.md**  
-  프로젝트 설명 파일입니다.
+/project-root
+├── index.html # 메인 HTML 파일. 단일 페이지 애플리케이션의 진입점
+├── /css # CSS 파일을 저장하는 폴더
+│ ├── addTodoModal.css # '할 일 추가' 모달 창 스타일
+│ ├── showTodoDetailsModal.css # '할 일 상세보기' 모달 창 스타일
+│ ├── styles.css # 공통 스타일 시트
+│ ├── todoItemList.css # 할 일 리스트 스타일
+├── /js # JavaScript 파일을 저장하는 폴더
+│ ├── /utils # 유틸리티 함수 폴더
+│ │ └── localStorage.js # 로컬 스토리지 관리 함수
+│ ├── /modals # 모달 관련 스크립트 폴더
+│ │ ├── addTodoModal.js # '할 일 추가' 모달 창 로직
+│ │ └── showTodoDetailsModal.js # '할 일 상세보기' 모달 창 로직
+│ ├── createSubTask.js # 하위 작업 추가 로직
+│ ├── deleteTodo.js # '할 일 삭제' 기능 로직
+│ ├── todoItemList.js # 할 일 리스트 생성 및 관리 로직
+├── /assets # 정적 파일 (아이콘, 이미지 등)을 저장하는 폴더
+│ ├── todo.ico # 할 일 아이콘
+│ └── trashcan.png # 휴지통 아이콘
 
 ---
 
