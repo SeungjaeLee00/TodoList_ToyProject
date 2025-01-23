@@ -25,21 +25,25 @@ export function todoItemList(todo, todos) {
     showTodoDetailsModal(todo, todos);
   });
 
-  const deleteButton = document.createElement("button");
-  deleteButton.className = "delete-button";
-  deleteButton.textContent = "삭제";
-
   const createdAt = document.createElement("span");
   createdAt.className = "created-at";
   // console.log(todo.createdAt);
-
   createdAt.textContent = new Date(todo.createdAt).toLocaleString();
+
+  const deleteButton = document.createElement("button");
+  deleteButton.className = "delete-button";
+
+  const trashIcon = document.createElement("img");
+  trashIcon.src = "/assets/trashcan.png";
+  trashIcon.alt = "삭제 아이콘";
+
+  deleteButton.appendChild(trashIcon);
 
   li.appendChild(checkbox);
   li.appendChild(label);
   li.appendChild(detailsButton);
-  li.appendChild(deleteButton);
   li.appendChild(createdAt);
+  li.appendChild(deleteButton);
 
   li.className = "todo-item";
 

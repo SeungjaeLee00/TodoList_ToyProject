@@ -14,9 +14,14 @@
   background-color: white;
   padding: 20px;
   border-radius: 10px;
-  text-align: center;
   position: relative;
   width: 300px;
+}
+
+.detail-modal-content h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: black;
 }
 
 .detail-close-button {
@@ -34,6 +39,7 @@
 .sub-tasks-list {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .sub-tasks-list li {
@@ -46,13 +52,30 @@
   margin-right: 10px;
 }
 
+.sub-tasks-list li span {
+  font-size: 1em;
+  color: black;
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+.sub-tasks-list li.completed span {
+  text-decoration: line-through;
+  color: gray;
+}
+
 .sub-tasks-container input[type="text"] {
   width: 70%;
   padding: 5px;
   margin-right: 10px;
 }
 
-.sub-tasks-container button {
-  padding: 5px 10px;
+.sub-tasks-list button {
+  background-color: none;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin: 5px;
   cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }

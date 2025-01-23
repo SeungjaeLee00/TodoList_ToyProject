@@ -15,11 +15,40 @@ export function showTodoDetailsModal(todo, todos) {
     modal.remove();
   });
 
+  const titleElement = document.createElement("h2");
+  titleElement.textContent = todo.title;
+
   const details = document.createElement("div");
-  details.innerHTML = `
-      <h2>${todo.title}</h2>
-      <p>${todo.content}</p>
-    `;
+  details.className = "todo-details";
+
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.checked = todo.completed || false;
+
+  const label = document.createElement("label");
+  label.textContent = todo.content;
+
+  checkbox.addEventListener("change", () => {
+    todo.completed = checkbox.checked;
+
+    if (checkbox.checked) {
+      label.style.textDecoration = "line-through";
+      label.style.color = "gray";
+    } else {
+      label.style.textDecoration = "none";
+      label.style.color = "black";
+    }
+
+    saveTodos(todos);
+  });
+
+  if (todo.completed) {
+    label.style.textDecoration = "line-through";
+    label.style.color = "gray";
+  }
+
+  details.appendChild(checkbox);
+  details.appendChild(label);
 
   // 하위 메모 섹션
   const subTasksContainer = document.createElement("div");
@@ -27,13 +56,12 @@ export function showTodoDetailsModal(todo, todos) {
   const subTasksList = document.createElement("ul");
   subTasksList.className = "sub-tasks-list";
 
-  // 기존 하위 항목 렌더링
   if (!todo.subTasks) todo.subTasks = [];
   todo.subTasks.forEach((subTask) => {
     const subTaskItem = createSubTask(subTask, todo, todos);
     subTasksList.appendChild(subTaskItem);
   });
-  // 입력 및 추가 버튼
+
   const subTaskInput = document.createElement("input");
   subTaskInput.type = "text";
   subTaskInput.placeholder = "할 일 추가";
@@ -52,9 +80,7 @@ export function showTodoDetailsModal(todo, todos) {
     const subTaskItem = createSubTask(newSubTask, todo, todos);
     subTasksList.appendChild(subTaskItem);
 
-    // 로컬 스토리지에 저장
     saveTodos(todos);
-
     subTaskInput.value = "";
   });
 
@@ -62,8 +88,8 @@ export function showTodoDetailsModal(todo, todos) {
   subTasksContainer.appendChild(subTaskInput);
   subTasksContainer.appendChild(addSubTaskBtn);
 
-  // 모달 구성
   modalContent.appendChild(closeBtn);
+  modalContent.appendChild(titleElement);
   modalContent.appendChild(details);
   modalContent.appendChild(subTasksContainer);
   modal.appendChild(modalContent);
