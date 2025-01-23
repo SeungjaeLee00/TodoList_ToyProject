@@ -18,9 +18,7 @@ export function showTodoDetailsModal(todo, todos) {
   const titleElement = document.createElement("h2");
   titleElement.textContent = todo.title;
 
-  const details = document.createElement("div");
-  details.className = "todo-details";
-
+  // 체크박스와 라벨을 분리해서 디테일에 넣
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
   checkbox.checked = todo.completed || false;
@@ -47,12 +45,17 @@ export function showTodoDetailsModal(todo, todos) {
     label.style.color = "gray";
   }
 
-  details.appendChild(checkbox);
-  details.appendChild(label);
+  // details 구성 요소 분리
+  const detailsContainer = document.createElement("div");
+  detailsContainer.className = "todo-details";
+
+  detailsContainer.appendChild(checkbox);
+  detailsContainer.appendChild(label);
 
   // 하위 메모 섹션
   const subTasksContainer = document.createElement("div");
   subTasksContainer.className = "sub-tasks-container";
+
   const subTasksList = document.createElement("ul");
   subTasksList.className = "sub-tasks-list";
 
@@ -62,12 +65,17 @@ export function showTodoDetailsModal(todo, todos) {
     subTasksList.appendChild(subTaskItem);
   });
 
+  const subTaskInputContainer = document.createElement("div");
+  subTaskInputContainer.className = "sub-task-input-container";
+
   const subTaskInput = document.createElement("input");
+  subTaskInput.className = "sub-task-input";
   subTaskInput.type = "text";
   subTaskInput.placeholder = "할 일 추가";
 
   const addSubTaskBtn = document.createElement("button");
-  addSubTaskBtn.textContent = "추가";
+  addSubTaskBtn.textContent = "+";
+  addSubTaskBtn.className = "add-sub-task-btn";
   addSubTaskBtn.addEventListener("click", () => {
     const subTaskText = subTaskInput.value.trim();
     if (!subTaskText) {
@@ -84,13 +92,15 @@ export function showTodoDetailsModal(todo, todos) {
     subTaskInput.value = "";
   });
 
+  subTaskInputContainer.appendChild(subTaskInput);
+  subTaskInputContainer.appendChild(addSubTaskBtn);
+
   subTasksContainer.appendChild(subTasksList);
-  subTasksContainer.appendChild(subTaskInput);
-  subTasksContainer.appendChild(addSubTaskBtn);
+  subTasksContainer.appendChild(subTaskInputContainer);
 
   modalContent.appendChild(closeBtn);
   modalContent.appendChild(titleElement);
-  modalContent.appendChild(details);
+  modalContent.appendChild(detailsContainer);
   modalContent.appendChild(subTasksContainer);
   modal.appendChild(modalContent);
 

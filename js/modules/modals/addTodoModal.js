@@ -15,15 +15,17 @@ export function addTodoModal(todos, todoList) {
 
   const titleLabel = document.createElement("label");
   titleLabel.className = "add-titie";
-  titleLabel.textContent = "제목:";
+  titleLabel.textContent = "제목";
   const titleInput = document.createElement("input");
+  titleInput.className = "titleInput";
   titleInput.type = "text";
   titleInput.name = "todoTitle";
 
   const contentLabel = document.createElement("label");
   contentLabel.className = "add-content";
-  contentLabel.textContent = "내용:";
+  contentLabel.textContent = "내용";
   const contentInput = document.createElement("textarea");
+  contentInput.className = "contentInput";
   contentInput.name = "todoContent";
 
   const addButton = document.createElement("button");

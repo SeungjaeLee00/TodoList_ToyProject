@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     todoList.appendChild(li);
   });
 
-  // MutationObserver를 사용해 리스트에 새로운 노드가 추가되었을 때 메시지를 업데이트
+  // MutationObserver로 리스트에 새로운 노드가 추가되었을 때 메시지를 업데이트
   const observer = new MutationObserver(() => {
     updateEmptyMessageVisibility();
   });
