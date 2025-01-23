@@ -15,25 +15,38 @@ HTML, CSS, JavaScript로 구현된 간단한 Todo List 애플리케이션입니�
 
 ## 폴더 구조
 
-/project-root
-├── index.html # 메인 HTML 파일. 단일 페이지 애플리케이션의 진입점
-├── /css # CSS 파일을 저장하는 폴더
-│ ├── addTodoModal.css # '할 일 추가' 모달 창 스타일
-│ ├── showTodoDetailsModal.css # '할 일 상세보기' 모달 창 스타일
-│ ├── styles.css # 공통 스타일 시트
-│ ├── todoItemList.css # 할 일 리스트 스타일
-├── /js # JavaScript 파일을 저장하는 폴더
-│ ├── /utils # 유틸리티 함수 폴더
-│ │ └── localStorage.js # 로컬 스토리지 관리 함수
-│ ├── /modals # 모달 관련 스크립트 폴더
-│ │ ├── addTodoModal.js # '할 일 추가' 모달 창 로직
-│ │ └── showTodoDetailsModal.js # '할 일 상세보기' 모달 창 로직
-│ ├── createSubTask.js # 하위 작업 추가 로직
-│ ├── deleteTodo.js # '할 일 삭제' 기능 로직
-│ ├── todoItemList.js # 할 일 리스트 생성 및 관리 로직
-├── /assets # 정적 파일 (아이콘, 이미지 등)을 저장하는 폴더
-│ ├── todo.ico # 할 일 아이콘
-│ └── trashcan.png # 휴지통 아이콘
+### 프로젝트 루트
+
+- `index.html`: 메인 HTML 파일로, 단일 페이지 애플리케이션의 진입점입니다.
+
+### /css
+
+- `addTodoModal.css`: '할 일 추가' 모달 창의 스타일을 정의한 CSS 파일입니다.
+- `showTodoDetailsModal.css`: '할 일 상세보기' 모달 창의 스타일을 정의한 CSS 파일입니다.
+- `styles.css`: 프로젝트 전반에서 사용되는 공통 스타일 시트입니다.
+- `todoItemList.css`: 할 일 리스트의 스타일을 정의한 CSS 파일입니다.
+
+### /js
+
+#### /utils
+
+- `localStorage.js`: 로컬 스토리지 관리와 관련된 유틸리티 함수가 포함된 파일입니다.
+
+#### /modals
+
+- `addTodoModal.js`: '할 일 추가' 모달 창의 로직을 처리하는 JavaScript 파일입니다.
+- `showTodoDetailsModal.js`: '할 일 상세보기' 모달 창의 로직을 처리하는 JavaScript 파일입니다.
+
+#### 기타
+
+- `createSubTask.js`: 하위 작업 추가 기능의 로직을 담당하는 JavaScript 파일입니다.
+- `deleteTodo.js`: '할 일 삭제' 기능의 로직을 처리하는 JavaScript 파일입니다.
+- `todoItemList.js`: 할 일 리스트 생성 및 관리를 담당하는 JavaScript 파일입니다.
+
+### /assets
+
+- `todo.ico`: 할 일 애플리케이션에서 사용되는 아이콘 파일입니다.
+- `trashcan.png`: 휴지통 아이콘 이미지 파일입니다.
 
 ---
 
