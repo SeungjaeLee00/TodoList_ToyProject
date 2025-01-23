@@ -3,28 +3,31 @@ import { todoItemList } from "../todoItemList.js";
 
 export function addTodoModal(todos, todoList) {
   const modal = document.createElement("div");
-  modal.className = "modal";
+  modal.className = "add-modal";
 
   const modalContent = document.createElement("div");
-  modalContent.className = "modal-content";
+  modalContent.className = "add-modal-content";
 
   const closeBtn = document.createElement("span");
-  closeBtn.className = "close-button";
+  closeBtn.className = "add-close-button";
   closeBtn.textContent = "×";
   closeBtn.addEventListener("click", () => modal.remove());
 
   const titleLabel = document.createElement("label");
+  titleLabel.className = "add-titie";
   titleLabel.textContent = "제목:";
   const titleInput = document.createElement("input");
   titleInput.type = "text";
   titleInput.name = "todoTitle";
 
   const contentLabel = document.createElement("label");
+  contentLabel.className = "add-content";
   contentLabel.textContent = "내용:";
   const contentInput = document.createElement("textarea");
   contentInput.name = "todoContent";
 
   const addButton = document.createElement("button");
+  addButton.className = "add-btn";
   addButton.textContent = "추가하기";
   addButton.addEventListener("click", () => {
     const title = titleInput.value.trim();

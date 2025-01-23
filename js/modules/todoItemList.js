@@ -32,6 +32,7 @@ export function todoItemList(todo, todos) {
   const createdAt = document.createElement("span");
   createdAt.className = "created-at";
   // console.log(todo.createdAt);
+
   createdAt.textContent = new Date(todo.createdAt).toLocaleString();
 
   li.appendChild(checkbox);
