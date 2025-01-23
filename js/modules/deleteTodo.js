@@ -1,5 +1,6 @@
 import { saveTodos } from "../utils/localStorage.js";
 
+// 단일 삭제
 export function deleteTodo(id, todos, li) {
   if (!todos) {
     console.log("todos 배열이 정의되지 않았습니다.");

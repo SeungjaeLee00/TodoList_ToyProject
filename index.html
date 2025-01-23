@@ -3,19 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>할 일 목록</title>
+    <title>오늘의 할 일</title>
     <link rel="stylesheet" href="./css/styles.css" />
     <link rel="stylesheet" href="./css/todoItemList.css" />
     <link rel="stylesheet" href="./css/addTodoModal.css" />
     <link rel="stylesheet" href="./css/showTodoDetailsModal.css" />
     <link rel="icon" href="./assets/todo.ico" type="image/x-icon" />
+    <!-- <h2>오늘의 할 일</h2> -->
   </head>
   <body>
-    <h2>오늘의 할 일</h2>
-    <ul id="todoList"></ul>
+    <h2>할 일을 정리해보세요!</h2>
+    <div
+      style="justify-content: space-between; align-items: center; padding: 10px"
+    >
+      <ul id="todoList"></ul>
+      <button id="delete-all-btn">
+        전체 삭제
+        <img
+          id="delete-all-img"
+          src="./assets/delete-all.png"
+          alt="전체 삭제"
+        />
+      </button>
+    </div>
     <p id="emptyMessage" class="hidden">할 일을 추가해보세요 !</p>
-    <button id="delete-all-btn" class="delete-all-btn">전체 삭제</button>
-
     <button id="addTodo">+</button>
     <script type="module" src="./js/index.js"></script>
   </body>

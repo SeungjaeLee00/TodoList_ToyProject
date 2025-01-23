@@ -18,6 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  function toggleDeleteAllButton() {
+    if (todos.length > 0) {
+      deleteAllButton.style.display = "flex";
+    } else {
+      deleteAllButton.style.display = "none";
+    }
+  }
+
   function renderTodos() {
     todoList.innerHTML = ""; // 기존 리스트 초기화
     todos.forEach((todo) => {
@@ -25,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
       todoList.appendChild(li);
     });
     updateEmptyMessageVisibility();
+    toggleDeleteAllButton();
   }
 
   // 초기 로드 시 렌더링
@@ -34,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // MutationObserver로 리스트에 새로운 노드가 추가되었을 때 메시지를 업데이트
   const observer = new MutationObserver(() => {
     updateEmptyMessageVisibility();
+    toggleDeleteAllButton();
   });
 
   observer.observe(todoList, {
